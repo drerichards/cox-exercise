@@ -22,7 +22,6 @@ class DataForm extends Component {
 
     render() {
         const {time, name, phoneNumber, index} = this.state
-        console.log(phoneNumber)
         return (
             <Row>
                 <Input s={6} label="First Name (Minimum 3 Characters)" validate defaultValue={name} 
