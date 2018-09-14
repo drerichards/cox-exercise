@@ -29,7 +29,7 @@ class App extends Component {
         time = time - 12
         time = `${time}:00 p.m.`
       } else time = `${time}:00 a.m.`
-      timeState.push({time: time, name: '', phoneNumber: ''})
+      timeState.push({time: time, name: '', phoneNumber: '', infoEntered: false})
     })
     return timeState
   }
@@ -38,7 +38,9 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div className='container'>{this.state.slots.length > 0 ? <TimeSlots slotState={this.state.slots}/> : ''}</div>
+        <div className='container'>{this.state.slots.length > 0 ? 
+          <TimeSlots slotState={this.state.slots}/> : ''}
+        </div>
       </div>
     );
   }

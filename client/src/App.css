@@ -16,6 +16,7 @@
   margin: 0.5em 0;
   height: 3.5em;
   background-color: #62b3cc;
+  width: 100%;
 }
 
 .container ul button:hover {
