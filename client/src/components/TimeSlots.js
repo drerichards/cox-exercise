@@ -4,15 +4,14 @@ import DataForm from './DataForm'
 import {Collection, Button, Modal} from 'react-materialize'
 
 const TimeSlots = ({slotState, saveInfo}) => {
-    console.log(slotState)
-    const getUserInfo = (name, phoneNumber) => {
-        console.log(name, phoneNumber)
+    const getUserInfo = (time, name, phoneNumber, index) => {
+        saveInfo(time, name, phoneNumber, index)
     }
     const renderSlots = () => {
         return slotState.map((slot, i) => {
             return <Modal key={i} waves='light' header='Enter Your Information'
-                    trigger={<Button>{slot.time}</Button>}>
-                        <DataForm name={slot.name} phoneNumber={slot.phoneNumber} getUserInfo={getUserInfo}/>
+                    trigger={<Button className={slot.infoEntered ? 'red' : ''}>{slot.time}</Button>}>
+                        <DataForm data={slot} getUserInfo={getUserInfo}/>
                 </Modal>
         })
     }

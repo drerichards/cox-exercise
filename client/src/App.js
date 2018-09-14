@@ -42,14 +42,15 @@ class App extends Component {
     return timeState
   }
 
-  saveInfo(time, name, phoneNumber, index){
+  saveInfo = (time, name, phoneNumber, index) => {
     const newState = {time, name, phoneNumber, infoEntered: true, index}
     this.setState({
-      slots: {...this.state.slots[index], newState}
+      slots: Object.assign([...this.state.slots], {[index]: newState})
     })
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className='App'>
         <ErrorBoundary hasError={this.state.hasError}>

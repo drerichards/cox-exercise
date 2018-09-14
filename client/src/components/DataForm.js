@@ -6,20 +6,23 @@ class DataForm extends Component {
     constructor(props){
         super(props)
         this.state = {
-            name: props.name,
-            phoneNumber: props.phoneNumber
+            time: props.data.time,
+            name: props.data.name,
+            phoneNumber: props.data.phoneNumber,
+            index: props.data.index
         }
     }
 
     updateName(val){
-        val.length > 2 && isNaN(val) === true ? this.setState({name: val}) : ''
+        val.length > 2 || isNaN(val) === true ? this.setState({name: val}) : ''
     }
     updatePhoneNumber(val){
-        val.length === 7 && isNaN(val) === false ? this.setState({phoneNumber: val}) : ''
+        val.length === 7 || isNaN(val) === false ? this.setState({phoneNumber: val}) : ''
     }
 
     render() {
-        const {name, phoneNumber} = this.state
+        const {time, name, phoneNumber, index} = this.state
+        console.log(phoneNumber)
         return (
             <Row>
                 <Input s={6} label="First Name (Minimum 3 Characters)" validate defaultValue={name} 
@@ -29,15 +32,14 @@ class DataForm extends Component {
                 <div className='error-msg'></div>
                 {name.length < 3 || phoneNumber.length === undefined ? <Button disabled>Save</Button> : 
                 <Button className='modal-close' onClick={() => {
-                    this.props.getUserInfo(name, phoneNumber)}}>Save</Button>}
+                    this.props.getUserInfo(time, name, phoneNumber, index)}}>Save</Button>}
             </Row>
         );
     }
 }
 
 DataForm.propTypes = {
-    name: PropTypes.string.isRequired,
-    phoneNumber: PropTypes.number.isRequired,
+    data: PropTypes.object.isRequired,
     getUserInfo: PropTypes.func.isRequired
 };
 
