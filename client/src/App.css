@@ -1,9 +1,10 @@
 .App {
   display: flex;
   text-align: center;
+  justify-content: center;
 }
 
-.container{
+.container {
   width: 30vw;
 }
 
@@ -28,9 +29,15 @@
   background-color: #1d627d;
 }
 
-.collection{
+.collection {
   border: none;
 }
+
 .collection .collection-item {
   background-color: initial;
+}
+
+.modal-close:hover {
+  color: #fff;
+  background-color: #437a8a;
 }
