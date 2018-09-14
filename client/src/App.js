@@ -21,17 +21,21 @@ class App extends Component {
   }
 
   createTimeSlotState(){
-    const timeArr = []
+    // DRY code to iterate time slots for state
+    const timeArr = [] 
     let timeState = [],
       count = -1
     for (let i = 9; i < 18; i++) {
       timeArr.push(i)
     }
+    //iterate over time slots
     timeArr.map(time => {
+      //convert time
       if (time > 12) {
         time = time - 12
         time = `${time}:00 p.m.`
       } else time = `${time}:00 a.m.`
+      //track index
       count++
       timeState.push({time: time, 
         name: '', 

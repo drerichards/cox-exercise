@@ -14,9 +14,11 @@ class DataForm extends Component {
     }
 
     updateName(val){
+        //validation for length and type
         val.length > 2 || isNaN(val) === true ? this.setState({name: val}) : ''
     }
     updatePhoneNumber(val){
+        //validation for length and type
         val.length === 7 || isNaN(val) === false ? this.setState({phoneNumber: val}) : ''
     }
 
